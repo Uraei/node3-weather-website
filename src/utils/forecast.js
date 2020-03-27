@@ -12,7 +12,8 @@ const forecast = (latitude, longitude, callback) => {
             const temperature = body.currently.temperature
             const precipProbability = body.currently.precipProbability
             const dailySummary = body.daily.data[0].summary
-            callback(undefined, dailySummary + ' It is currently ' + temperature + ' degrees out. There is a ' + precipProbability + '% change of rain')
+            const uvIndex = body.currently.uvIndex
+            callback(undefined, dailySummary + ' It is currently ' + temperature + ' degrees out. There is a ' + precipProbability + '% change of rain. The UV Index is ' + uvIndex)
         }
     })
 }
